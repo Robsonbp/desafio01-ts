@@ -1,7 +1,7 @@
 export abstract class DioAccount {
-  private name: string
+  private readonly name: string
   private readonly accountNumber: number
-  balance: number = 0
+  private balance: number = 0
   private status: boolean = true
 
   constructor(name: string, accountNumber: number){
@@ -9,10 +9,10 @@ export abstract class DioAccount {
     this.accountNumber = accountNumber
   }
 
-  setName = (name: string): void => {
-    this.name = name
-    console.log('Nome alterado com sucesso!')
-  }
+  // setName = (name: string): void => {
+  //   this.name = name
+  //   console.log('Nome alterado com sucesso!')
+  // }
 
   getName = (): string => {
     return this.name
@@ -22,18 +22,27 @@ export abstract class DioAccount {
     if(this.validateStatus()){
       this.balance += valorDeposito
       console.log('Você depositou ' + valorDeposito.toString() + ' com sucesso')
+      this.getBalance
     }
+
+    console.log('Validação da conta falhou')
   }
 
-  withdraw = (): void => {
-    console.log('Voce sacou')
+  withdraw = (valorRetirada: number): void => {
+    if (this.balance >= valorRetirada && this.validateStatus()){
+      this.balance -= valorRetirada
+      console.log('Saque de ' + valorRetirada.toString() + ' feito com sucesso')
+      this.getBalance()
+    }
+      
   }
 
   getBalance = (): void => {
     console.log(this.balance)
   }
 
-  private validateStatus = (): boolean => {
+
+  validateStatus = (): boolean => {
     if (this.status) {
       return this.status
     }
