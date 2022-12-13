@@ -7,9 +7,6 @@ export class VipAccount extends DioAccount {
     }
 
     deposit = (valorDeposito: number): void => {
-        if(this.validateStatus()){
-            this.balance += valorDeposito + 10
-            console.log('Você depositou ' + valorDeposito.toString() + ' com sucesso')
-          }
+        super.deposit(valorDeposito + 10)          
     }
 }
