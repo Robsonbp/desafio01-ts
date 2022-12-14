@@ -14,29 +14,32 @@ export abstract class DioAccount {
   //   console.log('Nome alterado com sucesso!')
   // }
 
-  getName = (): string => {
+  public getName = (): string => {
     return this.name
   }
 
-  deposit = (valorDeposito: number): void => {
+  public deposit = (valorDeposito: number): void => {
     if(this.validateStatus()){
       this.balance += valorDeposito
+    }else {
+      throw new Error('Conta inválida')
     }
   }
 
-  withdraw = (valorRetirada: number): void => {
+  public withdraw = (valorRetirada: number): void => {
     if (this.balance >= valorRetirada && this.validateStatus()){
       this.balance -= valorRetirada
-    }
-      
+    }else{
+      throw new Error('Conta não possui fundos suficientes ou não está ativa no momento')
+    }  
   }
 
-  getBalance = (): void => {
+  public getBalance = (): void => {
     console.log(this.balance)
   }
 
 
-  validateStatus = (): boolean => {
+  public validateStatus = (): boolean => {
     if (this.status) {
       return this.status
     }
