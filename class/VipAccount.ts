@@ -6,7 +6,8 @@ export class VipAccount extends DioAccount {
         super(name, accountNumber)
     }
 
-    public deposit = (valorDeposito: number): void => {
-        super.deposit(valorDeposito)
+    public deposit (valorDeposito: number): void {
+        super.deposit(valorDeposito + 10)
     }
+
 }

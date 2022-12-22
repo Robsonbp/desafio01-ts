@@ -14,11 +14,11 @@ export abstract class DioAccount {
   //   console.log('Nome alterado com sucesso!')
   // }
 
-  public getName = (): string => {
+  public getName (): string {
     return this.name
   }
 
-  public deposit = (valorDeposito: number): void => {
+  public deposit (valorDeposito: number): void {
     if(this.validateStatus()){
       this.balance += valorDeposito
     }else {
@@ -26,7 +26,7 @@ export abstract class DioAccount {
     }
   }
 
-  public withdraw = (valorRetirada: number): void => {
+  public withdraw (valorRetirada: number): void {
     if (this.balance >= valorRetirada && this.validateStatus()){
       this.balance -= valorRetirada
     }else{
@@ -34,12 +34,12 @@ export abstract class DioAccount {
     }  
   }
 
-  public getBalance = (): void => {
+  public getBalance (): void {
     console.log(this.balance)
   }
 
 
-  public validateStatus = (): boolean => {
+  public validateStatus (): boolean {
     if (this.status) {
       return this.status
     }

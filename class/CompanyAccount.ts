@@ -6,7 +6,7 @@ export class CompanyAccount extends DioAccount {
     super(name, accountNumber)
   }
 
-  getLoan = (valorEmprestimo: number): void => {
+  getLoan (valorEmprestimo: number): void {
     super.deposit(valorEmprestimo)
   }
 }

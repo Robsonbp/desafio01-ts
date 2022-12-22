@@ -9,17 +9,17 @@ peopleAccount.getBalance
 peopleAccount.getName
 
 const companyAccount: CompanyAccount = new CompanyAccount('DIO', 20)
-// companyAccount.deposit(20)
-// companyAccount.withdraw(10)
-// companyAccount.getBalance()
-// companyAccount.getName()
-// companyAccount.getLoan(20)
+companyAccount.deposit(20)
+companyAccount.withdraw(10)
+companyAccount.getBalance()
+companyAccount.getName()
+companyAccount.getLoan(20)
 
 const vipAccount: VipAccount = new VipAccount('Robson', 100)
-// vipAccount.deposit(30)
-// vipAccount.withdraw(31)
-// vipAccount.getBalance()
-// vipAccount.getName()
+vipAccount.getName()
+vipAccount.deposit(30)
+vipAccount.withdraw(31)
+vipAccount.getBalance()
 
 console.log(peopleAccount)
 console.log(companyAccount)
